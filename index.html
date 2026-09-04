@@ -1,0 +1,388 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+
+    <style>
+        .name{
+            display: flex;
+            position: relative;
+            z-index: 1;
+        }
+        .nav{
+            margin-left: 280px;
+            margin-top: 33px;
+        }
+        h1{
+            color: white;
+            margin-left: 400px;
+        }
+        body {
+            margin: 0;
+            min-height: 100vh;
+            background-color: rgb(10, 15, 20);
+            position: relative;
+        }
+        body::before {
+            content: "";
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 850px;
+
+            background-image:
+                linear-gradient(
+                    to bottom,
+                    rgba(0, 0, 0,0.1) 0%,
+                    rgba(10, 15, 20, 0.5) 50%,
+                    rgba(10, 15, 20,0.9) 75%,
+                    rgb(10, 15, 20) 100%
+                ),
+                url("avengers.webp");
+
+            background-size: cover;
+            background-position: center top;
+            background-repeat: no-repeat;
+
+            z-index: 0;
+        }
+        .main{
+            margin-top: 0px ;
+            margin-left: 250px;
+            font-size: xx-large;
+            font-weight: 800;
+            font-family: Arial, Helvetica, sans-serif;
+            display: flex;
+            align-items: center;
+        }
+        .main img {
+            width: 80px;
+            height: 80px;
+            margin-right: 5px;
+            
+        }
+        a{
+            color: white;
+            text-decoration: none;
+            margin-left: 20px;
+            font-size: large;
+            font-family: Arial, Helvetica, sans-serif;
+            font-weight: bold;
+        }
+        .search{
+            margin-left: 20px;
+            margin-top: 25px;
+            height: 20px;
+            width: 190px;
+            border-radius: 20px;
+            padding: 5px;
+            background: rgba(255, 255, 255, 0.55);
+            
+
+        }
+        .search i {
+            color: white;
+        }
+        .search:hover i{
+            color: grey;
+        }
+        input{
+            border: none;
+            outline: none;
+            background: rgba(0, 0, 0, 0);
+        }
+        input::placeholder{
+
+            color: white;
+            font-size: small;
+
+            
+        }
+        .search:hover{
+            background-color: white;
+
+        }
+        #content{
+            font-size: larger;
+            margin-right: 40px;
+            margin-left: 85px;
+            margin-top: 300px;
+            background: transparent;
+            color: white;
+            font-family: Georgia, 'Times New Roman', Times, serif;
+            position: relative;
+            z-index: 1;
+
+        }
+        button{
+            background-color: rgba(0, 255, 0, 0.686);
+            width: 170px;
+            height: 60px;
+            border-radius: 15px;
+            border: 0px;
+            font-size: large;
+            font-weight: bold;
+            color: white;
+            margin-left: 575px;
+        }
+        button:hover{
+            background-color: rgb(8, 197, 8);
+        }
+       #small{
+        color: grey;
+        margin-left: 540px;
+       }
+       #films{
+        display: flex;
+        gap: 20px;
+        padding: 40px 80px;
+        flex-wrap: wrap;
+        margin-left: 30px;
+        
+       }
+       .film{
+        width: 150px;
+        height: 200px;
+        position: relative;
+        overflow: hidden;
+        border-radius: 5px;
+        cursor: pointer;
+        
+       }
+       .film img{
+        width: 100%;
+        height: 100%;
+        object-fit: cover;
+        transition: 0.3s;
+       }
+       .info {
+            position: absolute;
+            bottom: 0;
+            left: 0;
+            width: 100%;
+            padding: 15px;
+            box-sizing: border-box;
+            color: white;
+            opacity: 0;
+        }
+       .info h3 {
+            margin: 0;
+            font-size: 16px;
+        }
+
+        .info p {
+            margin: 5px 0 0;
+            color: white;
+            font-weight: bold;
+        }
+        .film:hover img {
+            transform: scale(1.05);
+            filter: brightness(45%);
+        }
+
+        .film:hover .info {
+            opacity: 1;
+        }
+        #reviews{
+            margin-left: 110px;
+        }
+        .rtitle{
+            border-bottom: 1px solid gray;
+            margin-right: 119px;
+            padding-bottom: 7px;
+        }
+        .rcontent{
+            border-bottom: 1px solid gray;
+            margin-right: 119px;
+            padding-bottom: 17px;
+        }
+        .rcontent p, h4, small{
+            color: grey;
+        }
+        .rcontent:hover h2{
+            color: green;
+        }
+        .review{
+            display: inline-flex;
+        }
+        .review h2{
+            font-size: larger;
+        }
+        .review h4{
+            font-size: medium;
+        }
+        .review p{
+            font-size: medium;
+        }
+        footer {
+            text-align: center;
+            padding: 20px;
+            margin-top: 30px;
+            font-size: 20px;
+            color: rgb(212, 202, 202);
+            border-top: 2px solid grey;
+        }
+                        
+
+    
+    </style>
+</head>
+<body>
+    <div class="name">
+        <a href="" class="main"><img src="icon1.png" alt="Moviebox">Moviebox</a>  
+        <div class="nav">
+            <a href="index.html">Sign In</a>
+            <a href="films.html">Flims</a>
+            <a href="reviews.html">Reviews</a>
+        </div>
+        <div class="search">
+            <input type="text" placeholder="">
+            <i class="fa fa-search"></i>
+        </div>
+    </div>
+    <div id="content"">
+    <h1>
+        <span style="margin-left: 15px;"> Track films you’ve watched.</span>
+       <br>
+        <span style="margin-left: 20px;">
+        Save those you want to see.
+    </span><br>
+        Tell your friends what’s good.
+    </h1>
+    <a href=""><button>Get Started</button></a><br><br>
+    <p id="small">The social network for film lovers.</p><br><br>
+
+
+<div id="films">
+    <div class="film">
+    <img src="drishyam.jpg" alt="">
+    <div class="info">
+        <h3>Drishyam</h3>
+        <p>9 ⭐</p>
+    </div>
+    </div>
+    <div class="film">
+    <img src="jurassic.webp" alt="">
+    <div class="info">
+        <h3>Jurassic Park</h3>
+        <p>8.2 ⭐</p>
+    </div>
+    </div>
+    <div class="film">
+    <img src="film3.jpg" alt="">
+    <div class="info">
+        <h3>Challengers</h3>
+        <p>7.5 ⭐</p>
+    </div>
+    </div>
+    <div class="film">
+    <img src="film4.webp" alt="">
+    <div class="info">
+        <h3>Avengers:Endgame</h3>
+        <p>9.5 ⭐</p>
+    </div>
+    </div>
+    <div class="film">
+    <img src="film5.jpg" alt="">
+    <div class="info">
+        <h3>Master</h3>
+        <p>7.8 ⭐</p>
+    </div>
+    </div>
+    <div class="film">
+    <img src="film6.jpg" alt="">
+    <div class="info">
+        <h3>Dhurandhar</h3>
+        <p>9.2 ⭐</p>
+    </div>
+    </div>
+    <div class="film">
+    <img src="film7.webp" alt="">
+    <div class="info">
+        <h3>Lokah</h3>
+        <p>8.8 ⭐</p>
+    </div>
+    </div>
+    
+</div><br>
+<div id="reviews">
+    <div class="rtitle">
+        <span>POPULAR REVIEWS THIS WEEK</span>
+        <span></span>
+    </div>
+    <div class="review">
+        <img src="">
+        <div class="rcontent">
+            <h2>Grand Theft Auto VI: An Extended Look | 2026</h2>
+            
+            <h4>🌍 ConnorEatsPants ⭐⭐⭐⭐</h4>
+            
+
+            <p>
+                Tried, but didn’t like doing crime. GTA5 required
+                shooting police officers in the opening scene.
+                Just couldn’t do it.
+            </p>
+
+            <small>♥ 10,072 likes</small>
+        </div><br>
+        <div class="rcontent">
+            <h2>End of an Oak Street | 2026</h2>
+
+            <h4>🌍 SciFireviewer ⭐⭐⭐⭐</h4>
+
+            <p>
+                A story that takes you through an unexpected journey.
+                A simple film with moments that stay with you.
+            </p>
+
+            <small>♥ 10,072 likes</small>
+        </div><br>
+        <div class="rcontent">
+            <h2>Spider-Man: Brand New Day | 2026</h2>
+
+            <h4>🕷️ ComicLover ⭐⭐⭐⭐</h4>
+
+            <p>
+                A brand new chapter for Spider-Man.
+                New challenges, new enemies, and a new beginning.
+            </p>
+
+            <small>♥ 8,521 likes</small>
+        </div><br>
+        <div class="rcontent">
+            <h2>The Odyssey | 2026</h2>
+
+            <h4>🌊 MythologyGeek ⭐⭐⭐⭐</h4>
+
+            <p>
+                An epic journey filled with adventure, mythology,
+                and unforgettable moments.
+            </p>
+
+            <small>♥ 7,843 likes</small>
+        </div><br>
+        <div class="rcontent">
+            <h2>Bethlehem Kudumba Unit | 2026</h2>
+
+            <h4>🎬 MalluUnit ⭐⭐⭐⭐</h4>
+
+            <p>
+                A fun family story filled with comedy, emotions,
+                and memorable moments.
+            </p>
+
+            <small>♥ 6,921 likes</small>
+        </div>
+    </div>
+    
+</div>
+<footer>
+    <p>© 2026 Moviebox. All rights reserved.</p>
+</footer>
+</body>
+</html>
